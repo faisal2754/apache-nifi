@@ -1,7 +1,5 @@
 FROM node:16
 
-# COPY ./package.json ./
-# COPY . ./prisma/
 COPY . .
 
 RUN chmod +x ./wait-for-postgres.sh
@@ -17,4 +15,4 @@ RUN apt --assume-yes install postgresql-client
 RUN apt --assume-yes install dos2unix
 RUN dos2unix ./wait-for-postgres.sh
 
-CMD cat package.json && sh ./wait-for-postgres.sh ${DB_HOST} ${POSTGRES_USER} npx prisma migrate deploy && npx prisma db seed
+CMD sh ./wait-for-postgres.sh ${DB_HOST} ${POSTGRES_USER} npx prisma migrate deploy && npx prisma db seed
