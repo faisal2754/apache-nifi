@@ -6,6 +6,7 @@ services:
     build: ./apache-nifi-service
     ports:
       - 8443:8443
+      - 7001:7001
     volumes:
       - apache-nifi-volume:/opt/nifi/nifi-current/
     environment:
