@@ -1,21 +1,21 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  apache-nifi: 
+  apache-nifi:
     container_name: apache-nifi
     build: ./apache_nifi-service
     user: root
     ports:
       - 8443:8443
       - 7001:7001
-    volumes:
-      - ./nifi-volume/database_repository:/opt/nifi/nifi-current/database_repository
-      - ./nifi-volume/flowfile_repository:/opt/nifi/nifi-current/flowfile_repository
-      - ./nifi-volume/content_repository:/opt/nifi/nifi-current/content_repository
-      - ./nifi-volume/provenance_repository:/opt/nifi/nifi-current/provenance_repository
-      - ./nifi-volume/state:/opt/nifi/nifi-current/state
-      - ./nifi-volume/logs:/opt/nifi/nifi-current/logs
-      - ./nifi-volume/conf:/opt/nifi/nifi-current/conf
+    # volumes:
+    #   - ./nifi-volume/database_repository:/opt/nifi/nifi-current/database_repository
+    #   - ./nifi-volume/flowfile_repository:/opt/nifi/nifi-current/flowfile_repository
+    #   - ./nifi-volume/content_repository:/opt/nifi/nifi-current/content_repository
+    #   - ./nifi-volume/provenance_repository:/opt/nifi/nifi-current/provenance_repository
+    #   - ./nifi-volume/state:/opt/nifi/nifi-current/state
+    #   - ./nifi-volume/logs:/opt/nifi/nifi-current/logs
+    #   - ./nifi-volume/conf:/opt/nifi/nifi-current/conf
     environment:
       - SINGLE_USER_CREDENTIALS_USERNAME=admin
       - SINGLE_USER_CREDENTIALS_PASSWORD=ctsBtRBKHRAx69EqUghvvgEvjnaLjFEB
@@ -68,4 +68,3 @@ services:
     volumes:
       - ./nifi_registry-volume/database:/opt/nifi-registry/nifi-registry-current/database:rw
       - ./nifi_registry-volume/flow_storage:/opt/nifi-registry/nifi-registry-current/flow_storage:rw
-
