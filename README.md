@@ -17,7 +17,6 @@ sample@system:~$ docker-compose up
 
 ```
 sample@system:~$ curl localhost:7001/books
-
 [
 	{
 		"book_id": 1,
