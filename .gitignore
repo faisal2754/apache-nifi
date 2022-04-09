@@ -6,3 +6,4 @@ postgres
 .vscode
 temp.yaml
 postgres-volume
+nifi-volume

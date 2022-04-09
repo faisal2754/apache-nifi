@@ -10,28 +10,28 @@ datasource db {
   url      = env("DB_URL")
 }
 
-model Publisher {
+model publisher {
   publisher_id    Int    @id @default(autoincrement())
   name  String
   address  String
-  authors Author[]
+  authors author[]
 }
 
-model Author {
+model author {
   author_id    Int    @id @default(autoincrement())
   name  String
   age  Int
-  books Book[]
+  books book[]
   publisher_id Int
 
-  publisher Publisher @relation(fields: [publisher_id], references: [publisher_id])
+  publisher publisher @relation(fields: [publisher_id], references: [publisher_id])
 }
 
-model Book {
+model book {
   book_id    Int    @id @default(autoincrement())
   title String
   genre String
   author_id  Int
 
-  author Author @relation(fields: [author_id], references: [author_id])
+  author author @relation(fields: [author_id], references: [author_id])
 }
